@@ -1,23 +1,29 @@
-package com.example.movie
+package com.example.movie.splash.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.movie.auth_landing.view.AuthLandingActivity
+import com.example.movie.R
 
-class MainActivity : AppCompatActivity() {
+
+class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.auth_landing_screen)
+        setContentView(R.layout.activity_splash_screen)
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        val textViewMovie = findViewById<TextView>(R.id.tv_watch)
+        val textViewMovie = findViewById<TextView>(R.id.txv_watch)
 
         val text = textViewMovie.text.toString()
 
@@ -35,5 +41,11 @@ class MainActivity : AppCompatActivity() {
             )
         }
         textViewMovie.text = spannable
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this, AuthLandingActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 3000)
     }
 }

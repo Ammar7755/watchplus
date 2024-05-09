@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ln_color"
-    tools:context=".SplashScreen">
+    tools:context=".splash.view.SplashScreen">
 
 
     <TextView
-        android:id="@+id/tv_watch"
+        android:id="@+id/txv_watch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

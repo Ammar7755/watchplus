@@ -1,30 +1,24 @@
-package com.example.movie
+package com.example.movie.auth_landing.view
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.movie.MainActivity
 import com.example.movie.R
 
-class SplashScreen : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+class AuthLandingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        setContentView(R.layout.activity_auth_landing_screen)
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        val textViewMovie = findViewById<TextView>(R.id.tv_watch)
+        val textViewMovie = findViewById<TextView>(R.id.txv_watch)
 
         val text = textViewMovie.text.toString()
 
@@ -42,11 +36,5 @@ class SplashScreen : AppCompatActivity() {
             )
         }
         textViewMovie.text = spannable
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 3000)
     }
 }

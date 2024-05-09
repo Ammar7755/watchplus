@@ -6,7 +6,7 @@
     android:background="@drawable/ln_color">
 
     <TextView
-        android:id="@+id/tv_watch"
+        android:id="@+id/txv_watch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_signup_description"
+        android:id="@+id/txv_signup_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -29,12 +29,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_watch"
+        app:layout_constraintTop_toBottomOf="@+id/txv_watch"
 
         />
 
     <TextView
-        android:id="@+id/tv_username"
+        android:id="@+id/txv_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
@@ -46,10 +46,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup_description" />
+        app:layout_constraintTop_toBottomOf="@+id/txv_signup_description" />
 
     <EditText
-        android:id="@+id/ed_username"
+        android:id="@+id/edt_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -58,10 +58,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+        app:layout_constraintTop_toBottomOf="@+id/txv_username" />
 
     <TextView
-        android:id="@+id/tv_email"
+        android:id="@+id/txv_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
@@ -73,10 +73,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_username" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_username" />
 
     <EditText
-        android:id="@+id/ed_email"
+        android:id="@+id/edt_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -85,10 +85,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+        app:layout_constraintTop_toBottomOf="@+id/txv_email" />
 
     <TextView
-        android:id="@+id/tv_password"
+        android:id="@+id/txv_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
@@ -100,12 +100,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_email"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"
 
         />
 
     <EditText
-        android:id="@+id/ed_password"
+        android:id="@+id/edt_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -114,10 +114,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+        app:layout_constraintTop_toBottomOf="@+id/txv_password" />
 
     <TextView
-        android:id="@+id/tv_password_confirm"
+        android:id="@+id/txv_password_confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
@@ -129,12 +129,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_password"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password"
 
         />
 
     <EditText
-        android:id="@+id/ed_password_confirm"
+        android:id="@+id/edt_password_confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -142,14 +142,14 @@
         android:background="@drawable/edittext_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_password_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/txv_password_confirm"
         android:inputType="textPassword"
         />
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
-        app:layout_constraintTop_toBottomOf="@+id/ed_password_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginRight="100dp"
