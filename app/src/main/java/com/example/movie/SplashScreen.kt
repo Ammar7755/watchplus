@@ -1,5 +1,6 @@
 package com.example.movie
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -14,6 +15,7 @@ import com.example.movie.MainActivity
 import com.example.movie.R
 
 class SplashScreen : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -22,18 +24,18 @@ class SplashScreen : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        val textViewMovie = findViewById<TextView>(R.id.Movie)
+        val textViewMovie = findViewById<TextView>(R.id.tv_watch)
 
         val text = textViewMovie.text.toString()
 
         val spannable = SpannableStringBuilder(text)
 
-        val eIndex = text.indexOf("e")
+        val eIndex = text.indexOf("+")
 
         if (eIndex != -1) {
 
             spannable.setSpan(
-                ForegroundColorSpan(Color.WHITE),
+                ForegroundColorSpan(Color.BLUE),
                 eIndex,
                 eIndex + 1,
                 SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE

@@ -1,4 +1,14 @@
 <resources>
-    <string name="app_name">Movie</string>
-    <string name="movie">Movie+</string>
+    <string name="app_name">Watch+</string>
+    <string name="watch">Watch+</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up?</string>
+    <string name="login_to_your_account">Login to Your Account!</string>
+    <string name="password">Password</string>
+    <string name="email_or_phone_number">Email or phone number</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="sign_Up">Sign up</string>
+    <string name="sign_up_now">Sign up Now!</string>
+    <string name="username">Username</string>
 </resources>
