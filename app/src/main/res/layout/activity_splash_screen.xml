@@ -16,7 +16,7 @@
         android:gravity="center"
         android:text="@string/watch"
         android:textColor="@color/white"
-        android:textSize="65sp"
+        android:textSize="48sp"
         android:textStyle="bold"
 
         />
