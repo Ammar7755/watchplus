@@ -1,7 +1,6 @@
 package com.example.movie.splash.view
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,7 +9,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.movie.auth_landing.view.AuthLandingActivity
+import com.example.movie.authLanding.landing.view.AuthLandingScreen
 import com.example.movie.R
 
 
@@ -34,7 +33,7 @@ class SplashScreen : AppCompatActivity() {
         if (eIndex != -1) {
 
             spannable.setSpan(
-                ForegroundColorSpan(Color.BLUE),
+                ForegroundColorSpan(textViewMovie.context.getColor(R.color.blue)),
                 eIndex,
                 eIndex + 1,
                 SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -43,7 +42,7 @@ class SplashScreen : AppCompatActivity() {
         textViewMovie.text = spannable
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, AuthLandingActivity::class.java)
+            val intent = Intent(this, AuthLandingScreen::class.java)
             startActivity(intent)
             finish()
         }, 3000)
