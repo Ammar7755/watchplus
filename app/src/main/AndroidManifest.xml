@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Movie"
-        tools:targetApi="31">
+        tools:targetApi="31"
+
+        >
 
         <activity
             android:name=".splash.view.SplashScreen"
@@ -19,12 +21,19 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".auth_landing.view.AuthLandingActivity"></activity>
+
+        <activity android:name=".authLanding.landing.view.AuthLandingScreen"
+            android:screenOrientation="portrait"
+            />
+
+
     </application>
 
 </manifest>
