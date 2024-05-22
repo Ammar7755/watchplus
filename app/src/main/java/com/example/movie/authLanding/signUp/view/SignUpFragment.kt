@@ -42,10 +42,15 @@ class SignUpFragment : Fragment() {
         val confirmPasswordEditText = view.findViewById<EditText>(R.id.edt_password_confirm)
 
         signUpButton.setOnClickListener {
-            val email = emailEditText.text.toString()
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            val confirmPassword = confirmPasswordEditText.text.toString()
+            val email = emailEditText.text.toString().trim()
+            val username = usernameEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+            val confirmPassword = confirmPasswordEditText.text.toString().trim()
+
+            if (email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                showToast("Please fill in all fields")
+                return@setOnClickListener
+            }
 
             if (password != confirmPassword) {
                 showToast("Passwords do not match")
@@ -64,7 +69,6 @@ class SignUpFragment : Fragment() {
                                 .set(user)
                                 .addOnSuccessListener {
                                     showToast("Username stored successfully!")
-                                    // Handle what to do next, such as navigating to another screen
                                 }
                                 .addOnFailureListener { e ->
                                     showToast("Error storing username: $e")
