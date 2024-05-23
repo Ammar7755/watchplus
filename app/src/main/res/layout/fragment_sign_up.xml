@@ -47,6 +47,7 @@
         app:layout_constraintStart_toStartOf="@+id/edt_username"
         app:layout_constraintTop_toBottomOf="@+id/txv_signup_description" />
 
+    <!-- TODO: CR NOTES -> move the hardcoded hint to a string resource -->
     <EditText
         android:id="@+id/edt_username"
         android:layout_width="0dp"
@@ -77,6 +78,7 @@
         app:layout_constraintStart_toStartOf="@+id/edt_email"
         app:layout_constraintTop_toBottomOf="@+id/edt_username" />
 
+    <!-- TODO: CR NOTES -> move the hardcoded hint to a string resource -->
     <EditText
         android:id="@+id/edt_email"
         android:layout_width="0dp"
@@ -107,6 +109,7 @@
         app:layout_constraintStart_toStartOf="@+id/edt_password"
         app:layout_constraintTop_toBottomOf="@+id/edt_email" />
 
+    <!-- TODO: CR NOTES -> move the hardcoded hint to a string resource -->
     <EditText
         android:id="@+id/edt_password"
         android:layout_width="0dp"
@@ -137,6 +140,7 @@
         app:layout_constraintStart_toStartOf="@+id/edt_password_confirm"
         app:layout_constraintTop_toBottomOf="@+id/edt_password" />
 
+    <!-- TODO: CR NOTES -> move the hardcoded hint to a string resource -->
     <EditText
         android:id="@+id/edt_password_confirm"
         android:layout_width="0dp"

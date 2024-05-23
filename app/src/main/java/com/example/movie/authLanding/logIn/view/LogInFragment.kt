@@ -47,14 +47,18 @@ class LogInFragment : Fragment() {
             val password = passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
+              // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
+
                 showToast("Please enter both email and password.")
                 return@setOnClickListener
             }
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
+                        // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
                         showToast("Login successful!")
                     } else {
+                        // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
                         showToast("Login failed: ${task.exception?.message}")
                     }
                 }
@@ -66,12 +70,15 @@ class LogInFragment : Fragment() {
                 auth.sendPasswordResetEmail(email)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
                             showToast("Password reset email sent successfully!")
                         } else {
+                            // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
                             showToast("Failed to send password reset email: ${task.exception?.message}")
                         }
                     }
             } else {
+                // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
                 showToast("Please enter your email address.")
             }
         }
