@@ -11,8 +11,24 @@
     <string name="sign_Up">SignUp</string>
     <string name="sign_up_now">Sign up Now!</string>
     <string name="username">Username</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="forget_your_password">Forget your password?</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="image_for_list_of_movies">Image for list of movies</string>
+    <string name="categories">Categories</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="sign_up_failed">Sign up failed: %1$s</string>
+    <string name="please_enter_your_email_address">Please enter your email address.</string>
+    <string name="failed_to_send_password_reset_email">Failed to send password reset email: %1$s</string>
+    <string name="password_reset_email_sent_successfully">Password reset email sent successfully!</string>
+    <string name="login_failed">Login failed: %1$s</string>
+    <string name="login_successful">Login successful!</string>
+    <string name="please_enter_both_email_and_password">Please enter both email and password.</string>
+    <string name="please_fill_in_all_fields">Please fill in all fields</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="username_stored_successfully">Username stored successfully!</string>
+    <string name="error_storing_username">Error storing username: %1$s</string>
 </resources>

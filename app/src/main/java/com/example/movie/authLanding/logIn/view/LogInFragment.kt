@@ -47,15 +47,17 @@ class LogInFragment : Fragment() {
             val password = passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-                showToast("Please enter both email and password.")
+
+
+                showToast(getString(R.string.please_enter_both_email_and_password))
                 return@setOnClickListener
             }
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
-                        showToast("Login successful!")
+                        showToast(getString(R.string.login_successful))
                     } else {
-                        showToast("Login failed: ${task.exception?.message}")
+                        showToast(getString(R.string.login_failed, task.exception?.message))
                     }
                 }
         }
@@ -66,13 +68,18 @@ class LogInFragment : Fragment() {
                 auth.sendPasswordResetEmail(email)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            showToast("Password reset email sent successfully!")
+                            showToast(getString(R.string.password_reset_email_sent_successfully))
                         } else {
-                            showToast("Failed to send password reset email: ${task.exception?.message}")
+
+                            showToast(
+                                getString(
+                                    R.string.failed_to_send_password_reset_email,
+                                    task.exception?.message
+                                ))
                         }
                     }
             } else {
-                showToast("Please enter your email address.")
+                showToast(getString(R.string.please_enter_your_email_address))
             }
         }
 

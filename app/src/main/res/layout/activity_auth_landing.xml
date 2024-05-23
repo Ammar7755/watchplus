@@ -8,8 +8,9 @@
     android:layout_height="match_parent"
     tools:context=".authLanding.landing.view.AuthLandingScreen">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main"
+        android:id="@+id/cl_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background">
@@ -27,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- TODO: change the font size to a smaller one -->
+
         <Button
             android:id="@+id/btn_login"
             android:layout_width="350dp"

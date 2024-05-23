@@ -1,6 +1,7 @@
 package com.example.movie.authLanding.landing.view
 
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
@@ -54,6 +55,8 @@ class AuthLandingScreen : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    fun onButtonClicked(view: View) {}
 
 
 }
