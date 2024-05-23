@@ -48,14 +48,12 @@ class SignUpFragment : Fragment() {
             val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
             if (email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
-                showToast("Please fill in all fields")
+                showToast(getString(R.string.please_fill_in_all_fields))
                 return@setOnClickListener
             }
 
             if (password != confirmPassword) {
-                // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
-                showToast("Passwords do not match")
+                showToast(getString(R.string.passwords_do_not_match))
                 return@setOnClickListener
             }
 
@@ -64,24 +62,20 @@ class SignUpFragment : Fragment() {
                     if (task.isSuccessful) {
                         val userId = auth.currentUser?.uid
                         if (userId != null) {
-                            // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
                             val user = hashMapOf(
-                                "username" to username
+                                getString(R.string.username) to username
                             )
                             firestore.collection("users").document(userId)
                                 .set(user)
                                 .addOnSuccessListener {
-                                    // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
-                                    showToast("Username stored successfully!")
+                                    showToast(getString(R.string.username_stored_successfully))
                                 }
                                 .addOnFailureListener { e ->
-                                    // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
-                                    showToast("Error storing username: $e")
+                                    showToast(getString(R.string.error_storing_username, e))
                                 }
                         }
                     } else {
-                        // TODO: CR NOTES -> move the hardcoded hint to a string resource -->
-                        showToast("Sign up failed: ${task.exception?.message}")
+                        showToast(getString(R.string.sign_up_failed, task.exception?.message))
                     }
                 }
         }
