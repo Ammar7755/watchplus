@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.movie.homePage.view.HomePageFragment
+import com.example.movie.homePage.view.HomeFragment
 import com.example.movie.R
 import com.example.movie.authLanding.signUp.view.SignUpFragment
 import com.example.movie.utils.SharedPrefConstants
@@ -58,7 +58,7 @@ class LogInFragment : Fragment() {
                         SharedPrefsManager.setBoolean(SharedPrefConstants.IS_LOGGED_IN, true)
                         emailEditText.text.clear()
                         passwordEditText.text.clear()
-                        openFragment(R.id.fl_container, HomePageFragment())
+                        openFragment(R.id.fl_container, HomeFragment())
                     } else {
                         showToast(getString(R.string.login_failed, task.exception?.message))
                     }
@@ -102,7 +102,7 @@ class LogInFragment : Fragment() {
     private fun openFragment(containerId: Int, fragment: Fragment) {
         parentFragmentManager.beginTransaction()
             .replace(containerId, fragment)
-            .addToBackStack(HomePageFragment.TAG)
+            .addToBackStack(HomeFragment.TAG)
             .commit()
     }
 }

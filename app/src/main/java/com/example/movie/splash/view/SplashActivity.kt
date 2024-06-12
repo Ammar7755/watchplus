@@ -10,10 +10,10 @@ import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.movie.authLanding.landing.view.AuthLandingScreen
+import com.example.movie.authLanding.landing.view.AuthLandingActivity
 import com.example.movie.R
 
-class SplashScreen : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class SplashScreen : AppCompatActivity() {
         textViewMovie.text = spannable
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, AuthLandingScreen::class.java)
+            val intent = Intent(this, AuthLandingActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

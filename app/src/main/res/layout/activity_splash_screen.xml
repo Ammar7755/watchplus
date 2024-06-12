@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ln_color"
-    tools:context=".splash.view.SplashScreen">
+    tools:context=".splash.view.SplashActivity">
 
     <TextView
         android:id="@+id/txv_watch"

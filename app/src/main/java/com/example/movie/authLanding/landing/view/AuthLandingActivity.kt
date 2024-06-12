@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.movie.R
 import com.example.movie.authLanding.signUp.view.SignUpFragment
-import com.example.movie.homePage.view.HomePageFragment
+import com.example.movie.homePage.view.HomeFragment
 import com.example.movie.utils.SharedPrefConstants
 import com.example.movie.utils.SharedPrefsManager
 import com.example.movie.utils.TextViewUtils
 
-class AuthLandingScreen : AppCompatActivity() {
+class AuthLandingActivity : AppCompatActivity() {
     var logInButton: Button? = null
     var txvSignUp: TextView? = null
 
@@ -66,8 +66,8 @@ class AuthLandingScreen : AppCompatActivity() {
 
     private fun navigateToHomeFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_container, HomePageFragment())
-            .addToBackStack(HomePageFragment.TAG)
+            .replace(R.id.fl_container, HomeFragment())
+            .addToBackStack(HomeFragment.TAG)
             .commit()
     }
 }

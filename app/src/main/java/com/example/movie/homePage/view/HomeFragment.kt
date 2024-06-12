@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +15,7 @@ import com.example.movie.homePage.viewModel.HomeViewModel
 import com.example.movie.utils.SharedPrefConstants
 import com.example.movie.utils.SharedPrefsManager
 
-class HomePageFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModels()
     val verticalAdapter = VerticalAdapter()

@@ -6,7 +6,7 @@
     android:id="@+id/fl_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authLanding.landing.view.AuthLandingScreen">
+    tools:context=".authLanding.landing.view.AuthLandingActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

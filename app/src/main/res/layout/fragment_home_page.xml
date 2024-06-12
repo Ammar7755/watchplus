@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ln_color"
-    tools:context=".homePage.view.HomePageFragment">
+    tools:context=".homePage.view.HomeFragment">
 
     <ImageView
         android:id="@+id/btn_logout"

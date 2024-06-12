@@ -6,22 +6,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie.R
 import com.example.movie.homePage.model.Movie
-import com.example.movie.homePage.view.adapters.viewHolders.ItemViewHolder
+import com.example.movie.homePage.view.adapters.viewHolders.ProductItemViewHolder
 
-class ItemsAdapter(private val items: List<Movie> = arrayListOf()) :
-    RecyclerView.Adapter<ItemViewHolder>() {
+class HorizontalAdapter(private val items: List<Movie> = arrayListOf()) :
+    RecyclerView.Adapter<ProductItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductItemViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
-        return ItemViewHolder(itemView)
+        return ProductItemViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductItemViewHolder, position: Int) {
         val item = items[position]
         holder.txvItem.text = item.movieTitle
         // load image using glide
