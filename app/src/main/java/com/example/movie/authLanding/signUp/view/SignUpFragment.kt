@@ -19,6 +19,15 @@ class SignUpFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
+    companion object {
+
+        fun newInstance() : SignUpFragment {
+            return SignUpFragment()
+        }
+
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
