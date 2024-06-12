@@ -9,6 +9,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.movie.R
+import com.example.movie.homePage.view.HomePageFragment
+import com.example.movie.utils.SharedPrefConstants
+import com.example.movie.utils.SharedPrefsManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,11 +23,9 @@ class SignUpFragment : Fragment() {
     private lateinit var firestore: FirebaseFirestore
 
     companion object {
-
         fun newInstance() : SignUpFragment {
             return SignUpFragment()
         }
-
 
     }
 
@@ -78,6 +79,8 @@ class SignUpFragment : Fragment() {
                                 .set(user)
                                 .addOnSuccessListener {
                                     showToast(getString(R.string.username_stored_successfully))
+                                    SharedPrefsManager.setBoolean(SharedPrefConstants.IS_LOGGED_IN, true)
+                                    openFragment(R.id.fl_container, HomePageFragment())
                                 }
                                 .addOnFailureListener { e ->
                                     showToast(getString(R.string.error_storing_username, e))
@@ -92,5 +95,12 @@ class SignUpFragment : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun openFragment(containerId: Int, fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(containerId, fragment)
+            .addToBackStack(HomePageFragment.TAG)
+            .commit()
     }
 }

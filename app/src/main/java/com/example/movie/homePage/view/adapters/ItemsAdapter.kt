@@ -13,7 +13,7 @@ class ItemsAdapter(private val items: List<Movie> = arrayListOf()) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
         return ItemViewHolder(itemView)
     }
 

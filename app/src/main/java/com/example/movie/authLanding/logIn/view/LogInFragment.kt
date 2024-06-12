@@ -1,5 +1,3 @@
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +10,8 @@ import androidx.fragment.app.Fragment
 import com.example.movie.homePage.view.HomePageFragment
 import com.example.movie.R
 import com.example.movie.authLanding.signUp.view.SignUpFragment
+import com.example.movie.utils.SharedPrefConstants
+import com.example.movie.utils.SharedPrefsManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -19,13 +19,10 @@ import com.google.firebase.ktx.Firebase
 class LogInFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-        sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-
     }
 
     override fun onCreateView(
@@ -44,11 +41,7 @@ class LogInFragment : Fragment() {
         val forgetPasswordTextView = view.findViewById<TextView>(R.id.txv_forget_password)
         val noAccountTextView = view.findViewById<TextView>(R.id.txv_no_account)
 
-        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
-        if (isLoggedIn) {
-            openFragment(R.id.fl_container, HomePageFragment())
-            return
-        }
+
 
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -62,10 +55,9 @@ class LogInFragment : Fragment() {
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         showToast(getString(R.string.login_successful))
-                        with(sharedPreferences.edit()) {
-                            putBoolean("isLoggedIn", true)
-                            apply()
-                        }
+                        SharedPrefsManager.setBoolean(SharedPrefConstants.IS_LOGGED_IN, true)
+                        emailEditText.text.clear()
+                        passwordEditText.text.clear()
                         openFragment(R.id.fl_container, HomePageFragment())
                     } else {
                         showToast(getString(R.string.login_failed, task.exception?.message))
@@ -110,7 +102,7 @@ class LogInFragment : Fragment() {
     private fun openFragment(containerId: Int, fragment: Fragment) {
         parentFragmentManager.beginTransaction()
             .replace(containerId, fragment)
-            .addToBackStack(null)
+            .addToBackStack(HomePageFragment.TAG)
             .commit()
     }
 }

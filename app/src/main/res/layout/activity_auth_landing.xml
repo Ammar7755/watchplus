@@ -37,7 +37,6 @@
             android:backgroundTint="@color/blue"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="onButtonClicked"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp"

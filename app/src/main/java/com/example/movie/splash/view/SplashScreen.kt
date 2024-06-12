@@ -1,21 +1,17 @@
 package com.example.movie.splash.view
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
-import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import com.example.movie.authLanding.landing.view.AuthLandingScreen
 import com.example.movie.R
-import com.example.movie.homePage.view.HomePageFragment
-
 
 class SplashScreen : AppCompatActivity() {
 
@@ -23,10 +19,10 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue)
+
         val textViewMovie = findViewById<TextView>(R.id.txv_watch)
 
         val text = textViewMovie.text.toString()
@@ -52,4 +48,4 @@ class SplashScreen : AppCompatActivity() {
             finish()
         }, 3000)
     }
-  }
+}

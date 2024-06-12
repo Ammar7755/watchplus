@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="fragment_sign_up" type="id" />
-    <item name="action_logInFragment_to_fragment_home_page" type="id" />
-   />
-</resources>

@@ -7,5 +7,5 @@ import com.example.movie.R
 
 class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val txvTitle: TextView = itemView.findViewById(R.id.txv_title)
-    val recItems: RecyclerView = itemView.findViewById(R.id.rec_items)
+    val recItems: RecyclerView = itemView.findViewById(R.id.rec_horizontal)
 }

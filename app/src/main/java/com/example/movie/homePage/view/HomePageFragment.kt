@@ -1,33 +1,34 @@
 package com.example.movie.homePage.view
 
-import CategoriesAdapter
-import android.content.SharedPreferences
+import VerticalAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movie.R
-import com.example.movie.homePage.model.Category
 import com.example.movie.homePage.viewModel.HomeViewModel
+import com.example.movie.utils.SharedPrefConstants
+import com.example.movie.utils.SharedPrefsManager
 
 class HomePageFragment : Fragment() {
 
-    private lateinit var sharedPreferences: SharedPreferences
     private val homeViewModel: HomeViewModel by viewModels()
-    val categoriesAdapter = CategoriesAdapter()
-    private var param1: String? = null
-    private var param2: String? = null
+    val verticalAdapter = VerticalAdapter()
+
+    companion object  {
+        const val TAG = "HomePageFragment"
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
 
@@ -40,6 +41,8 @@ class HomePageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val btnLogout = view.findViewById<ImageView>(R.id.btn_logout)
+
         // handle vertical rec
         handleVerticalRecyclerView()
 
@@ -49,30 +52,23 @@ class HomePageFragment : Fragment() {
         // observe api result
         homeViewModel.movieObserver.observe(viewLifecycleOwner) { movies ->
             movies?.let {
-                categoriesAdapter.updateRecyclerViewData(movies)
+                verticalAdapter.updateRecyclerViewData(movies)
             }
+        }
+
+        btnLogout.setOnClickListener {
+            SharedPrefsManager.setBoolean(SharedPrefConstants.IS_LOGGED_IN, false)
+            // redirect user to authLanding
+//            childFragmentManager.popBackStack()
+            activity?.supportFragmentManager?.popBackStack()
         }
     }
 
     private fun handleVerticalRecyclerView() {
         view?.let { view ->
-            val recyclerView: RecyclerView = view.findViewById(R.id.rec_categories)
+            val recyclerView: RecyclerView = view.findViewById(R.id.rec_vertical)
             recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            recyclerView.adapter = categoriesAdapter
+            recyclerView.adapter = verticalAdapter
         }
-    }
-
-    companion object {
-        private const val ARG_PARAM1 = "param1"
-        private const val ARG_PARAM2 = "param2"
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomePageFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

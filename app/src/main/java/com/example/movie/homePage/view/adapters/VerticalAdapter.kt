@@ -7,13 +7,12 @@ import com.example.movie.homePage.model.Movie
 import com.example.movie.homePage.view.adapters.ItemsAdapter
 import com.example.movie.homePage.view.adapters.viewHolders.CategoryViewHolder
 
-
-class CategoriesAdapter(private var movies: List<Movie> = arrayListOf()) :
+class VerticalAdapter(private var movies: List<Movie> = arrayListOf()) :
     RecyclerView.Adapter<CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_horizantal, parent, false)
         return CategoryViewHolder(view)
     }
 
