@@ -5,63 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ln_color"
-    tools:context=".fragment_home_page">
+    tools:context=".homePage.view.HomePageFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
+        android:id="@+id/rec_categories"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title" />
-
-    <TextView
-        android:id="@+id/header_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Welcome to WATCH PLUS"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <QuickContactBadge
-        android:id="@+id/quickContactBadge"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header_title" />
-
-    <ImageView
-        android:id="@+id/image_featured"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:contentDescription="Featured Movie or Series Image"
-        android:scaleType="centerCrop"
-        android:src="@drawable/imageview"
-        app:layout_constraintTop_toBottomOf="@+id/header_title" />
-
-    <TextView
-        android:id="@+id/txv_categories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/categories"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/image_featured" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/txv_categories" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

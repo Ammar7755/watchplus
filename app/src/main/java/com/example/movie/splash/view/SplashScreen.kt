@@ -1,19 +1,24 @@
 package com.example.movie.splash.view
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
+import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.movie.authLanding.landing.view.AuthLandingScreen
 import com.example.movie.R
+import com.example.movie.homePage.view.HomePageFragment
 
 
 class SplashScreen : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -47,4 +52,4 @@ class SplashScreen : AppCompatActivity() {
             finish()
         }, 3000)
     }
-}
+  }

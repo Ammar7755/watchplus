@@ -1,5 +1,5 @@
-package com.example.movie.authLanding.logIn.view
-
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.movie.homePage.view.HomePageFragment
 import com.example.movie.R
 import com.example.movie.authLanding.signUp.view.SignUpFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -18,10 +19,13 @@ import com.google.firebase.ktx.Firebase
 class LogInFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
+        sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+
     }
 
     override fun onCreateView(
@@ -34,21 +38,23 @@ class LogInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val loginButton = view.findViewById<Button>(R.id.btn_login)
+        val loginButton = view.findViewById<Button>(R.id.btn_login_)
         val emailEditText = view.findViewById<EditText>(R.id.edt_email)
         val passwordEditText = view.findViewById<EditText>(R.id.edt_password)
         val forgetPasswordTextView = view.findViewById<TextView>(R.id.txv_forget_password)
         val noAccountTextView = view.findViewById<TextView>(R.id.txv_no_account)
 
-        auth = Firebase.auth
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+        if (isLoggedIn) {
+            openFragment(R.id.fl_container, HomePageFragment())
+            return
+        }
 
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-
-
                 showToast(getString(R.string.please_enter_both_email_and_password))
                 return@setOnClickListener
             }
@@ -56,6 +62,11 @@ class LogInFragment : Fragment() {
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         showToast(getString(R.string.login_successful))
+                        with(sharedPreferences.edit()) {
+                            putBoolean("isLoggedIn", true)
+                            apply()
+                        }
+                        openFragment(R.id.fl_container, HomePageFragment())
                     } else {
                         showToast(getString(R.string.login_failed, task.exception?.message))
                     }
@@ -70,12 +81,12 @@ class LogInFragment : Fragment() {
                         if (task.isSuccessful) {
                             showToast(getString(R.string.password_reset_email_sent_successfully))
                         } else {
-
                             showToast(
                                 getString(
                                     R.string.failed_to_send_password_reset_email,
                                     task.exception?.message
-                                ))
+                                )
+                            )
                         }
                     }
             } else {
@@ -85,14 +96,21 @@ class LogInFragment : Fragment() {
 
         noAccountTextView.setOnClickListener {
             val signUpFragment = SignUpFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fl_container, signUpFragment)
-                .addToBackStack(null)
-                .commit()
+            openFragment(R.id.fl_container, signUpFragment)
         }
     }
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     *  openFragment will start/begin a transaction using FragmentManager
+     */
+    private fun openFragment(containerId: Int, fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(containerId, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
